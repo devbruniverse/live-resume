@@ -8,4 +8,10 @@ export default defineConfig({
   build: {
     cssMinify: true,
     ssr: false,
-}});
+  },
+  resolve: {
+    alias: {
+      "~": "/app",
+    },
+  },
+});
