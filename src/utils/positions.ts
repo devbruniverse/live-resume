@@ -35,7 +35,7 @@ export const jobPositions = [
     startDate: 'October 2022',
     endDate: 'August 2023',
     description:
-      'Develop and maintain auctions and internal user operations using Javascript, TypeScript, React, and React Query for feature implementation. Successfully delivered impactful features, enhancing fundraising efforts. Optimized internal user operations, boosting productivity.',
+      'Develop and maintain auctions and internal user operations for an important fundraising company in the United States using Javascript, TypeScript, React, and React Query for feature implementation. Successfully delivered impactful features, enhancing fundraising efforts. Optimized internal user operations, boosting productivity.',
     responsibilities: [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
