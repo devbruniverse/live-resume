@@ -1,7 +1,7 @@
-import { IoLogoLinkedin, IoLogoGithub } from "react-icons/io5";
-import JobsListing from '~/components/JobsListing';
+import { IoLogoLinkedin, IoLogoGithub } from 'react-icons/io5';
+import JobsListing from '@/components/JobsListing';
 
-export function Welcome() {
+export default function Home() {
   return (
     <main className="flex items-center gap-4 flex-col justify-center">
       <header className="flex flex-row container content-between justify-center">
