@@ -7,7 +7,7 @@ import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
-  base: process.env.BASE_URL || '/',
+  base: process.env.BASE_URL || '/live-resume/',
   plugins: [react(), tailwindcss(), TanStackRouterVite(), tsconfigPaths()],
   build: {
     cssMinify: true,
