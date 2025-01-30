@@ -1,17 +1,17 @@
-import { useState, useCallback } from "react";
-import { JobPositionCard } from "~/components/JobPositionCard";
-import { jobPositions } from "~/utils/positions";
-import { filterBySearchTerm, debounce } from "~/utils/helpers";
+import { useState, useCallback } from 'react';
+import { JobPositionCard } from '@/components/JobPositionCard';
+import { jobPositions } from '@/utils/positions';
+import { filterBySearchTerm, debounce } from '@/utils/helpers';
 
 export default function JobsListing() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [filteredPositions, setFilteredPositions] = useState(
     filterBySearchTerm(searchTerm, jobPositions)
   );
 
   const handleSearchTermChange = useCallback(
     debounce((value: string) => {
-      console.log("searching");
+      console.log('searching');
       setFilteredPositions(filterBySearchTerm(value, jobPositions));
     }, 500),
     [jobPositions, setFilteredPositions]
@@ -20,7 +20,7 @@ export default function JobsListing() {
   const onSearchChange = (
     event: React.ChangeEvent<HTMLInputElement> | string
   ) => {
-    const searchValue = typeof event === "string" ? event : event.target.value;
+    const searchValue = typeof event === 'string' ? event : event.target.value;
     setSearchTerm(searchValue);
     handleSearchTermChange(searchValue);
   };

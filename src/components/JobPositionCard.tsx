@@ -1,4 +1,4 @@
-import type { IJobPositionCardProps } from '~/utils/interfaces';
+import type { IJobPositionCardProps } from 'src/utils/interfaces';
 
 const JobPositionCard = ({ jobPosition, setFilter }: IJobPositionCardProps) => {
   return (
