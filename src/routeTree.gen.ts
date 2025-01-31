@@ -11,37 +11,80 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ExperienceImport } from './routes/experience';
+import { Route as IndexImport } from './routes/index';
 
 // Create/Update Routes
+
+const ExperienceRoute = ExperienceImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => rootRoute
+} as any);
+
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute
+} as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+  interface FileRoutesByPath {
+    '/': {
+      id: '/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/experience': {
+      id: '/experience';
+      path: '/experience';
+      fullPath: '/experience';
+      preLoaderRoute: typeof ExperienceImport;
+      parentRoute: typeof rootRoute;
+    };
+  }
 }
 
 // Create and export the route tree
 
-export interface FileRoutesByFullPath {}
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute;
+  '/experience': typeof ExperienceRoute;
+}
 
-export interface FileRoutesByTo {}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute;
+  '/experience': typeof ExperienceRoute;
+}
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
+  __root__: typeof rootRoute;
+  '/': typeof IndexRoute;
+  '/experience': typeof ExperienceRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
-  fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths: '/' | '/experience';
+  fileRoutesByTo: FileRoutesByTo;
+  to: '/' | '/experience';
+  id: '__root__' | '/' | '/experience';
+  fileRoutesById: FileRoutesById;
 }
 
-export interface RootRouteChildren {}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute;
+  ExperienceRoute: typeof ExperienceRoute;
+}
 
-const rootRouteChildren: RootRouteChildren = {}
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  ExperienceRoute: ExperienceRoute
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
@@ -52,7 +95,16 @@ export const routeTree = rootRoute
   "routes": {
     "__root__": {
       "filePath": "__root.tsx",
-      "children": []
+      "children": [
+        "/",
+        "/experience"
+      ]
+    },
+    "/": {
+      "filePath": "index.tsx"
+    },
+    "/experience": {
+      "filePath": "experience.tsx"
     }
   }
 }

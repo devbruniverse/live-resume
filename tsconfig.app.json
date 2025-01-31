@@ -28,6 +28,5 @@
     },
     "baseUrl": "."
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.css"]
   }
   
