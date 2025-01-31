@@ -26,7 +26,7 @@ export default function JobsListing() {
   };
 
   return (
-    <main className="flex flex-col gap-6">
+    <main className="flex container flex-col gap-12 px-4">
       <h2 className="text-2xl">Experience</h2>
       <div className="flex flex-row gap-2">
         <input
@@ -39,11 +39,7 @@ export default function JobsListing() {
       </div>
       <div className="flex flex-col gap-10">
         {filteredPositions.map((jobPosition, index) => (
-          <JobPositionCard
-            jobPosition={jobPosition}
-            setFilter={onSearchChange}
-            key={index}
-          />
+          <JobPositionCard jobPosition={jobPosition} setFilter={onSearchChange} key={index} />
         ))}
         {!filteredPositions.length && (
           <div className="flex flex-col gap-4">
