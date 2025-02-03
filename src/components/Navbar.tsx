@@ -17,7 +17,11 @@ function getMenuAnchors(isDesktop = false) {
     <ul className={currentClasses}>
       {resources.map((linkProps) => (
         <li key={`navbar-${linkProps.href}`} className="flex">
-          <CustomLink {...linkProps} style={customLinkStyle} />
+          <CustomLink
+            {...linkProps}
+            style={customLinkStyle}
+            target={linkProps.isExternal ? '_blank' : '_self'}
+          />
         </li>
       ))}
     </ul>
@@ -30,7 +34,10 @@ export default function Navbar() {
   return (
     <header className="flex sticky flex-row container items-center content-between justify-center h-32 px-4">
       <nav className="flex items-center w-full justify-between">
-        <CustomLink href="/" label={<h4 className="font-extrabold">Bruno's Resume</h4>} />
+        <CustomLink
+          href="/"
+          label={<h4 className="font-extrabold">Bruno's Resume</h4>}
+        />
         {getMenuAnchors(true)}
         <button
           className="flex items-center gap-1 border bg-gray-50 border-gray-200 text-gray-500 py-2 px-4 rounded-md flex-row md:hidden z-20"
@@ -58,6 +65,10 @@ const resources = [
   {
     href: '/experience',
     label: 'Experience'
+  },
+  {
+    href: '/code',
+    label: 'Code'
   },
   {
     href: 'https://github.com/devbruniverse',

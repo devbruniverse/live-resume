@@ -1,4 +1,5 @@
 import type { IJobPositionCardProps } from 'src/utils/interfaces';
+import Button from '@/components/basic/Button';
 
 const JobPositionCard = ({ jobPosition, setFilter }: IJobPositionCardProps) => {
   return (
@@ -20,13 +21,12 @@ const JobPositionCard = ({ jobPosition, setFilter }: IJobPositionCardProps) => {
       </div>
       <div className="flex flex-row max-w-full gap-1 flex-wrap">
         {jobPosition.skills.map((skill: string) => (
-          <button
-            className="flex shrink-0 border border-gray-100 h-7 px-3 cursor-pointer text-center rounded-full"
+          <Button
             key={`${jobPosition.title}-${skill}`}
             onClick={() => setFilter(skill)}
           >
             {skill}
-          </button>
+          </Button>
         ))}
       </div>
     </div>
