@@ -14,7 +14,7 @@ const memoryHistory = createHashHistory();
 const router = createRouter({
   routeTree,
   history: memoryHistory,
-  basepath: import.meta.env?.BASE_URL || '/'
+  basepath: import.meta.env?.BASE_URL || '/live-resume/'
 });
 
 // Register the router instance for type safety
