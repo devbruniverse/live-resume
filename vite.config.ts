@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
-  base: import.meta.env?.BASE_URL || '/live-resume/',
+  base: import.meta.env?.BASE_URL || '/',
   plugins: [
     TanStackRouterVite({ autoCodeSplitting: true }),
     react(),

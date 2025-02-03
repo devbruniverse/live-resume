@@ -1,15 +1,20 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createRouter } from '@tanstack/react-router';
+import {
+  RouterProvider,
+  createRouter,
+  createHashHistory
+} from '@tanstack/react-router';
+import { routeTree } from '@/routeTree.gen';
 import '@/index.css';
 
-// Import the generated route tree
-import { routeTree } from '@/routeTree.gen';
+const memoryHistory = createHashHistory();
 
 // Create a new router instance
 const router = createRouter({
   routeTree,
-  basepath: import.meta.env?.BASE_URL || '/live-resume/'
+  history: memoryHistory,
+  basepath: import.meta.env?.BASE_URL || '/'
 });
 
 // Register the router instance for type safety
