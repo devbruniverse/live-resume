@@ -18,14 +18,18 @@ export default function CustomLink({
   href,
   label,
   icon,
-  isExternal,
   style = '',
   hideExternalIcon,
   target = '_self'
 }: TypeLink) {
-  if (isExternal) {
+  if (target == '_blank') {
     return (
-      <a className={`${anchorStyle} ${style}`} href={href} target={target} rel="noreferrer">
+      <a
+        className={`${anchorStyle} ${style}`}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+      >
         {icon}
         {label}
         {!hideExternalIcon && <IoOpenOutline />}
@@ -34,7 +38,7 @@ export default function CustomLink({
   }
 
   return (
-    <Link className={`${anchorStyle} ${style}`} to={href} target={target} rel="noreferrer">
+    <Link className={`${anchorStyle} ${style}`} to={href} rel="noreferrer">
       {icon}
       {label}
     </Link>
